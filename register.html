@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cravora | Restaurant Registration</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7f5;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            text-align: center;
+            color: #087f5b;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 12px 0;
+            color: #222;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 7px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 85px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 25px;
+            background: #087f5b;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #066849;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            color: #087f5b;
+            text-decoration: none;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 15px;
+            color: #087f5b;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">CRAVORA</div>
+
+    <h2>Register Your Restaurant</h2>
+    <p class="subtitle">Join Cravora and grow your food business!</p>
+
+    <form id="registrationForm">
+
+        <label>Restaurant Name</label>
+        <input type="text" placeholder="Enter restaurant name" required>
+
+        <label>Owner Name</label>
+        <input type="text" placeholder="Enter owner name" required>
+
+        <label>Phone Number</label>
+        <input type="tel" placeholder="Enter phone number"
+               pattern="[0-9]{10}" required>
+
+        <label>Email Address</label>
+        <input type="email" placeholder="Enter email address" required>
+
+        <label>Restaurant Address</label>
+        <textarea placeholder="Enter full restaurant address"
+                  required></textarea>
+
+        <label>Cuisine Type</label>
+        <select required>
+            <option value="">Select cuisine</option>
+            <option>Indian</option>
+            <option>Chinese</option>
+            <option>Italian</option>
+            <option>Thai</option>
+            <option>Japanese</option>
+            <option>Korean</option>
+            <option>Mexican</option>
+            <option>Continental</option>
+            <option>Multi-Cuisine</option>
+            <option>Other</option>
+        </select>
+
+        <label>Restaurant Image</label>
+        <input type="file" accept="image/*">
+
+        <button type="submit">Submit Registration</button>
+
+        <p id="message"></p>
+
+    </form>
+
+    <a href="index.html" class="back">← Back to Seller Dashboard</a>
+
+</div>
+
+<script>
+    document.getElementById("registrationForm")
+    .addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        document.getElementById("message").textContent =
+            "Demo registration submitted successfully!";
+
+        this.reset();
+    });
+</script>
+
+</body>
+</html>
