@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cravora Seller Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <h2>CRAVORA</h2>
+        <p>SELLER PANEL</p>
+
+        <nav>
+            <a href="#">Dashboard</a>
+            <a href="#">Orders</a>
+            <a href="#">My Menu</a>
+            <a href="#">Earnings</a>
+            <a href="#">Reviews</a>
+            <a href="#">Restaurant</a>
+            <a href="#">Settings</a>
+        </nav>
+    </aside>
+
+    <main class="main">
+        <header>
+            <h1>Seller Dashboard</h1>
+            <button id="storeStatus">Store Offline</button>
+        </header>
+
+        <h2>Welcome to Cravora!</h2>
+        <p>Manage your restaurant in one place.</p>
+
+        <section class="stats">
+            <div class="card">
+                <h3>New Orders</h3>
+                <h1 id="newOrders">0</h1>
+            </div>
+
+            <div class="card">
+                <h3>Preparing</h3>
+                <h1>0</h1>
+            </div>
+
+            <div class="card">
+                <h3>Ready for Pickup</h3>
+                <h1>0</h1>
+            </div>
+
+            <div class="card">
+                <h3>Today's Sales</h3>
+                <h1>₹0</h1>
+            </div>
+        </section>
+
+        <section class="orders">
+            <h2>Recent Orders</h2>
+            <p>No orders received yet.</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
