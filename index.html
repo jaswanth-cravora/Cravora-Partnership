@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Cravora | Seller Dashboard</title>
+    <title>CRAVORA | Seller Dashboard</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -20,9 +21,9 @@
         </div>
 
         <nav>
-            <a href="index.html">Dashboard</a>
+            <a href="index.html" class="active">Dashboard</a>
             <a href="#orders">Orders</a>
-            <a href="#menu">My Menu</a>
+            <a href="menu.html">My Menu</a>
             <a href="#earnings">Earnings</a>
             <a href="#reviews">Reviews</a>
             <a href="register.html">Restaurant Registration</a>
@@ -32,26 +33,30 @@
     </aside>
 
 
-    <!-- MAIN CONTENT -->
+    <!-- MAIN DASHBOARD -->
     <main class="main-content">
 
         <header>
             <h2>Seller Dashboard</h2>
-            <p>Welcome to your Cravora restaurant panel!</p>
+            <p>Welcome to Cravora! Manage your restaurant from here.</p>
         </header>
 
 
-        <!-- STORE STATUS -->
+        <!-- RESTAURANT STATUS -->
         <section class="store-status">
-            <h3>Restaurant Status</h3>
+
+            <h3>Restaurant Availability</h3>
+
+            <p>Control whether customers can order from your restaurant.</p>
 
             <button id="storeStatus">
                 Store Offline
             </button>
+
         </section>
 
 
-        <!-- DASHBOARD STATISTICS -->
+        <!-- STATISTICS -->
         <section class="stats-container">
 
             <div class="stat-card">
@@ -60,7 +65,7 @@
             </div>
 
             <div class="stat-card">
-                <h3>Preparing</h3>
+                <h3>Preparing Orders</h3>
                 <h2 id="preparingOrders">0</h2>
             </div>
 
@@ -83,6 +88,7 @@
             <h2>Recent Orders</h2>
 
             <table>
+
                 <thead>
                     <tr>
                         <th>Order ID</th>
@@ -96,57 +102,75 @@
                 <tbody>
                     <tr>
                         <td colspan="5">
-                            No orders yet. Your orders will appear here.
+                            No orders received yet.
                         </td>
                     </tr>
                 </tbody>
+
             </table>
 
         </section>
 
 
-        <!-- MENU SECTION -->
-        <section id="menu">
-            <h2>My Menu</h2>
-            <p>Manage your restaurant food items here.</p>
+        <!-- QUICK ACCESS -->
+        <section class="stats-container">
+
+            <div class="stat-card">
+                <h3>Food Menu</h3>
+                <p>Manage your food items and prices.</p>
+                <br>
+                <a href="menu.html">Manage Menu →</a>
+            </div>
+
+            <div class="stat-card">
+                <h3>Restaurant Profile</h3>
+                <p>Register your restaurant with Cravora.</p>
+                <br>
+                <a href="register.html">Register Now →</a>
+            </div>
+
         </section>
 
 
-        <!-- EARNINGS SECTION -->
-        <section id="earnings">
+        <!-- EARNINGS -->
+        <section class="orders-section" id="earnings">
+
             <h2>Earnings</h2>
-            <p>Your earnings information will appear here.</p>
+            <p>Your sales and earnings will appear here.</p>
+
         </section>
 
 
-        <!-- REVIEWS SECTION -->
-        <section id="reviews">
+        <!-- REVIEWS -->
+        <section class="orders-section" id="reviews">
+
             <h2>Customer Reviews</h2>
             <p>Customer feedback will appear here.</p>
+
         </section>
 
 
-        <!-- SETTINGS SECTION -->
-        <section id="settings">
+        <!-- SETTINGS -->
+        <section class="orders-section" id="settings">
+
             <h2>Settings</h2>
-            <p>Manage your seller account settings here.</p>
+            <p>Seller account settings will appear here.</p>
+
         </section>
 
 
-        <!-- REGISTRATION LINK -->
-        <section class="registration-section">
-            <h2>Restaurant Registration</h2>
-            <p>Register your restaurant with Cravora.</p>
-
-            <a href="register.html">
-                Register Your Restaurant
-            </a>
-        </section>
+        <!-- FOOTER -->
+        <footer>
+            <p>© 2026 CRAVORA. Every Craving, Delivered.</p>
+            <p>Seller Dashboard</p>
+        </footer>
 
     </main>
 
 
+    <!-- JAVASCRIPT -->
     <script src="script.js"></script>
 
 </body>
+
 </html>
