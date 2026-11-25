@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cravora | Seller Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <h1>CRAVORA</h1>
+            <p>SELLER PANEL</p>
+        </div>
+
+        <nav>
+            <a href="index.html">Dashboard</a>
+            <a href="#orders">Orders</a>
+            <a href="#menu">My Menu</a>
+            <a href="#earnings">Earnings</a>
+            <a href="#reviews">Reviews</a>
+            <a href="register.html">Restaurant Registration</a>
+            <a href="#settings">Settings</a>
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header>
+            <h2>Seller Dashboard</h2>
+            <p>Welcome to your Cravora restaurant panel!</p>
+        </header>
+
+
+        <!-- STORE STATUS -->
+        <section class="store-status">
+            <h3>Restaurant Status</h3>
+
+            <button id="storeStatus">
+                Store Offline
+            </button>
+        </section>
+
+
+        <!-- DASHBOARD STATISTICS -->
+        <section class="stats-container">
+
+            <div class="stat-card">
+                <h3>New Orders</h3>
+                <h2 id="newOrders">0</h2>
+            </div>
+
+            <div class="stat-card">
+                <h3>Preparing</h3>
+                <h2 id="preparingOrders">0</h2>
+            </div>
+
+            <div class="stat-card">
+                <h3>Ready for Pickup</h3>
+                <h2 id="readyOrders">0</h2>
+            </div>
+
+            <div class="stat-card">
+                <h3>Today's Sales</h3>
+                <h2 id="todaySales">₹0</h2>
+            </div>
+
+        </section>
+
+
+        <!-- RECENT ORDERS -->
+        <section class="orders-section" id="orders">
+
+            <h2>Recent Orders</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Food Item</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td colspan="5">
+                            No orders yet. Your orders will appear here.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+
+
+        <!-- MENU SECTION -->
+        <section id="menu">
+            <h2>My Menu</h2>
+            <p>Manage your restaurant food items here.</p>
+        </section>
+
+
+        <!-- EARNINGS SECTION -->
+        <section id="earnings">
+            <h2>Earnings</h2>
+            <p>Your earnings information will appear here.</p>
+        </section>
+
+
+        <!-- REVIEWS SECTION -->
+        <section id="reviews">
+            <h2>Customer Reviews</h2>
+            <p>Customer feedback will appear here.</p>
+        </section>
+
+
+        <!-- SETTINGS SECTION -->
+        <section id="settings">
+            <h2>Settings</h2>
+            <p>Manage your seller account settings here.</p>
+        </section>
+
+
+        <!-- REGISTRATION LINK -->
+        <section class="registration-section">
+            <h2>Restaurant Registration</h2>
+            <p>Register your restaurant with Cravora.</p>
+
+            <a href="register.html">
+                Register Your Restaurant
+            </a>
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
