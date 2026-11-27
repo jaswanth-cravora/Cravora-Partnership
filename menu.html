@@ -3,150 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cravora | My Menu</title>
+    <link rel="stylesheet" href="./style.css">
 
-    <title>Cravora | Seller Dashboard</title>
+    <style>
+        .menu-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 25px 0;
+        }
 
-    <link rel="stylesheet" href="style.css">
+        .menu-toolbar input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            min-width: 220px;
+        }
+
+        .add-food-btn {
+            background: #087F5B;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .menu-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .menu-table th,
+        .menu-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .menu-table th {
+            background: #087F5B;
+            color: white;
+        }
+
+        .availability {
+            color: #087F5B;
+            font-weight: bold;
+        }
+
+        .empty-message {
+            text-align: center !important;
+            padding: 35px !important;
+            color: #777;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #087F5B;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .menu-note {
+            margin-top: 20px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        @media(max-width: 650px) {
+            .menu-table {
+                font-size: 12px;
+            }
+
+            .menu-table th,
+            .menu-table td {
+                padding: 9px 6px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- SIDEBAR -->
     <aside class="sidebar">
-
         <div class="brand">
-            <h1>CRAVORA</h1>
-            <p>SELLER PANEL</p>
+            <h1><span style="color:#087F5B">CRAV</span><span style="color:#171717">ORA</span></h1>
+            <p>Every Craving, Delivered</p>
         </div>
 
         <nav>
-            <a href="index.html">Dashboard</a>
-            <a href="#orders">Orders</a>
-            <a href="#menu">My Menu</a>
-            <a href="#earnings">Earnings</a>
-            <a href="#reviews">Reviews</a>
-            <a href="register.html">Restaurant Registration</a>
-            <a href="#settings">Settings</a>
+            <a href="./index.html">Dashboard</a>
+            <a href="./index.html#orders">Orders</a>
+            <a href="./menu.html">My Menu</a>
+            <a href="./index.html#earnings">Earnings</a>
+            <a href="./index.html#reviews">Reviews</a>
+            <a href="./register.html">Restaurant Registration</a>
+            <a href="./index.html#settings">Settings</a>
         </nav>
-
     </aside>
 
-
-    <!-- MAIN CONTENT -->
     <main class="main-content">
 
+        <a class="back-link" href="./index.html">← Back to Dashboard</a>
+
         <header>
-            <h2>Seller Dashboard</h2>
-            <p>Welcome to your Cravora restaurant panel!</p>
+            <h2>My Menu</h2>
+            <p>Manage your restaurant's food items and availability.</p>
         </header>
 
-
-        <!-- STORE STATUS -->
-        <section class="store-status">
-            <h3>Restaurant Status</h3>
-
-            <button id="storeStatus">
-                Store Offline
-            </button>
-        </section>
-
-
-        <!-- DASHBOARD STATISTICS -->
         <section class="stats-container">
-
             <div class="stat-card">
-                <h3>New Orders</h3>
-                <h2 id="newOrders">0</h2>
+                <h3>Total Food Items</h3>
+                <h2 id="totalItems">0</h2>
             </div>
 
             <div class="stat-card">
-                <h3>Preparing</h3>
-                <h2 id="preparingOrders">0</h2>
+                <h3>Available Items</h3>
+                <h2 id="availableItems">0</h2>
             </div>
 
             <div class="stat-card">
-                <h3>Ready for Pickup</h3>
-                <h2 id="readyOrders">0</h2>
+                <h3>Unavailable Items</h3>
+                <h2 id="unavailableItems">0</h2>
             </div>
-
-            <div class="stat-card">
-                <h3>Today's Sales</h3>
-                <h2 id="todaySales">₹0</h2>
-            </div>
-
         </section>
 
+        <div class="menu-toolbar">
+            <input
+                type="search"
+                id="searchFood"
+                placeholder="Search food items..."
+                aria-label="Search food items"
+            >
 
-        <!-- RECENT ORDERS -->
-        <section class="orders-section" id="orders">
+            <button class="add-food-btn" id="addFoodBtn">
+                + Add Food Item
+            </button>
+        </div>
 
-            <h2>Recent Orders</h2>
+        <section class="orders-section">
+            <h2>Food Items</h2>
 
-            <table>
+            <table class="menu-table">
                 <thead>
                     <tr>
-                        <th>Order ID</th>
-                        <th>Customer</th>
-                        <th>Food Item</th>
-                        <th>Amount</th>
-                        <th>Status</th>
+                        <th>Food Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Availability</th>
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody id="foodTable">
                     <tr>
-                        <td colspan="5">
-                            No orders yet. Your orders will appear here.
+                        <td colspan="4" class="empty-message">
+                            No food items added yet.
+                            Click "+ Add Food Item" to get started.
                         </td>
                     </tr>
                 </tbody>
             </table>
-
         </section>
 
-
-        <!-- MENU SECTION -->
-        <section id="menu">
-            <h2>My Menu</h2>
-            <p>Manage your restaurant food items here.</p>
-        </section>
-
-
-        <!-- EARNINGS SECTION -->
-        <section id="earnings">
-            <h2>Earnings</h2>
-            <p>Your earnings information will appear here.</p>
-        </section>
-
-
-        <!-- REVIEWS SECTION -->
-        <section id="reviews">
-            <h2>Customer Reviews</h2>
-            <p>Customer feedback will appear here.</p>
-        </section>
-
-
-        <!-- SETTINGS SECTION -->
-        <section id="settings">
-            <h2>Settings</h2>
-            <p>Manage your seller account settings here.</p>
-        </section>
-
-
-        <!-- REGISTRATION LINK -->
-        <section class="registration-section">
-            <h2>Restaurant Registration</h2>
-            <p>Register your restaurant with Cravora.</p>
-
-            <a href="register.html">
-                Register Your Restaurant
-            </a>
-        </section>
+        <p class="menu-note">
+            Your menu items are currently stored in this browser only.
+            Online seller synchronisation will require a backend.
+        </p>
 
     </main>
 
+    <script>
+        const foodTable = document.getElementById("foodTable");
+        const searchFood = document.getElementById("searchFood");
 
-    <script src="script.js"></script>
+        let foods = [];
+
+        function renderFoods() {
+            const search = searchFood.value.toLowerCase();
+
+            const filtered = foods.filter(food =>
+                food.name.toLowerCase().includes(search) ||
+                food.category.toLowerCase().includes(search)
+            );
+
+            document.getElementById("totalItems").textContent = foods.length;
+
+            document.getElementById("availableItems").textContent =
+                foods.filter(food => food.available).length;
+
+            document.getElementById("unavailableItems").textContent =
+                foods.filter(food => !food.available).length;
+
+            if (filtered.length === 0) {
+                foodTable.innerHTML = `
+                    <tr>
+                        <td colspan="4" class="empty-message">
+                            No matching food items found.
+                        </td>
+                    </tr>`;
+                return;
+            }
+
+            foodTable.innerHTML = filtered.map(food => `
+                <tr>
+                    <td>${escapeHTML(food.name)}</td>
+                    <td>${escapeHTML(food.category)}</td>
+                    <td>₹${food.price.toFixed(2)}</td>
+                    <td>
+                        <span class="availability">
+                            ${food.available ? "Available" : "Unavailable"}
+                        </span>
+                    </td>
+                </tr>
+            `).join("");
+        }
+
+        function escapeHTML(value) {
+            return value.replace(/[&<>"']/g, char => ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#39;"
+            })[char]);
+        }
+
+        document.getElementById("addFoodBtn").addEventListener("click", () => {
+            const name = prompt("Enter food item name:");
+            if (!name || !name.trim()) return;
+
+            const category = prompt("Enter food category:");
+            if (!category || !category.trim()) return;
+
+            const priceInput = prompt("Enter food price in rupees:");
+            if (priceInput === null || priceInput.trim() === "") return;
+
+            const price = Number(priceInput);
+
+            if (!Number.isFinite(price) || price < 0) {
+                alert("Please enter a valid price.");
+                return;
+            }
+
+            foods.push({
+                name: name.trim(),
+                category: category.trim(),
+                price,
+                available: true
+            });
+
+            renderFoods();
+        });
+
+        searchFood.addEventListener("input", renderFoods);
+
+        renderFoods();
+    </script>
 
 </body>
 </html>
