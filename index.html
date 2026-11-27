@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRAVORA | Seller Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#171717">
+    <title>CRAVORA | Seller Panel</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
 
 <div class="dashboard">
@@ -23,62 +25,79 @@
         <div class="sidebar-title">SELLER PANEL</div>
 
         <nav class="nav-menu">
-            <a href="index.html" class="nav-link active" data-page="dashboard">
-                <span>▦</span> Dashboard
+
+            <a href="./index.html" class="nav-link active" data-page="dashboard">
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
             </a>
 
-            <a href="#" class="nav-link" data-page="orders">
-                <span>🛍</span> Orders
+            <a href="./index.html#orders" class="nav-link" data-page="orders">
+                <span class="nav-icon">🛍</span>
+                <span>Orders</span>
             </a>
 
-            <a href="menu.html" class="nav-link">
-                <span>🍔</span> My Menu
+            <a href="./menu.html" class="nav-link">
+                <span class="nav-icon">🍔</span>
+                <span>My Menu</span>
             </a>
 
-            <a href="#" class="nav-link" data-page="earnings">
-                <span>₹</span> Earnings
+            <a href="./index.html#earnings" class="nav-link" data-page="earnings">
+                <span class="nav-icon">₹</span>
+                <span>Earnings</span>
             </a>
 
-            <a href="#" class="nav-link" data-page="reviews">
-                <span>⭐</span> Reviews
+            <a href="./index.html#reviews" class="nav-link" data-page="reviews">
+                <span class="nav-icon">⭐</span>
+                <span>Reviews</span>
             </a>
 
-            <a href="register.html" class="nav-link">
-                <span>🏪</span> Restaurant Registration
+            <a href="./register.html" class="nav-link">
+                <span class="nav-icon">🏪</span>
+                <span>Restaurant Registration</span>
             </a>
 
-            <a href="#" class="nav-link" data-page="settings">
-                <span>⚙</span> Settings
+            <a href="./index.html#settings" class="nav-link" data-page="settings">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
             </a>
+
         </nav>
 
         <div class="sidebar-footer">
             CRAVORA Seller Platform
+            <span>Every Craving, Delivered</span>
         </div>
 
     </aside>
 
-    <!-- MAIN AREA -->
+
+    <!-- MAIN CONTENT -->
     <main class="main-content">
 
+        <!-- TOPBAR -->
         <header class="topbar">
+
             <h1 id="pageTitle">Dashboard</h1>
 
             <div class="topbar-actions">
+
                 <div class="store-status">
                     <span class="status-dot" id="statusDot"></span>
                     <span id="storeStatus">Store Online</span>
                 </div>
 
-                <button class="status-button" id="toggleStore">
+                <button type="button" class="status-button" id="toggleStore">
                     Go Offline
                 </button>
 
-                <button class="profile-button" id="profileButton">
+                <button type="button" class="profile-button" id="profileButton">
                     👤 Seller Profile
                 </button>
+
             </div>
+
         </header>
+
 
         <!-- DASHBOARD -->
         <section class="page-section active" id="dashboard">
@@ -88,6 +107,8 @@
                 <p>Manage your restaurant, orders and business from one place.</p>
             </div>
 
+
+            <!-- STATISTICS -->
             <div class="stats-grid">
 
                 <div class="stat-card">
@@ -116,167 +137,301 @@
 
             </div>
 
+
+            <!-- DASHBOARD CONTENT -->
             <div class="content-grid">
 
                 <div class="content-card">
                     <h3>Recent Orders</h3>
+
                     <div class="empty-state">
                         <div class="empty-icon">🛍</div>
-                        No orders yet.
+                        <p>No orders yet.</p>
+                        <p>New customer orders will appear here.</p>
                     </div>
                 </div>
+
 
                 <div class="content-card">
                     <h3>Quick Actions</h3>
+
                     <div class="quick-actions">
-                        <a href="menu.html" class="action-button">＋ Manage Menu</a>
-                        <a href="register.html" class="action-button">＋ Register Restaurant</a>
-                        <button class="action-button" data-page="orders">View Orders →</button>
-                        <button class="action-button" data-page="settings">Settings →</button>
+
+                        <a href="./menu.html" class="action-button">
+                            ＋ Manage Menu
+                        </a>
+
+                        <a href="./register.html" class="action-button">
+                            ＋ Register Restaurant
+                        </a>
+
+                        <button type="button" class="action-button" data-page="orders">
+                            View Orders →
+                        </button>
+
+                        <button type="button" class="action-button" data-page="settings">
+                            Settings →
+                        </button>
+
                     </div>
                 </div>
 
             </div>
+
         </section>
+
 
         <!-- ORDERS -->
         <section class="page-section" id="orders">
+
             <h2 class="section-heading">Orders</h2>
+
             <div class="content-card">
-                <h3>Manage Orders</h3>
+                <h3>Manage Your Orders</h3>
                 <p>Your incoming and completed orders will appear here once the ordering system is connected.</p>
             </div>
+
         </section>
+
 
         <!-- EARNINGS -->
         <section class="page-section" id="earnings">
+
             <h2 class="section-heading">Earnings</h2>
 
             <div class="stats-grid">
+
                 <div class="stat-card">
                     <p>Total Earnings</p>
                     <h2>₹0</h2>
                 </div>
+
                 <div class="stat-card">
                     <p>Today's Earnings</p>
                     <h2>₹0</h2>
                 </div>
+
                 <div class="stat-card">
                     <p>Pending Payments</p>
                     <h2>₹0</h2>
                 </div>
+
                 <div class="stat-card">
                     <p>Completed Payments</p>
                     <h2>₹0</h2>
                 </div>
+
             </div>
 
             <div class="content-card">
                 <h3>Payment History</h3>
-                <div class="empty-state">No payment records available yet.</div>
+
+                <div class="empty-state">
+                    No payment records available yet.
+                </div>
             </div>
+
         </section>
 
-        <!-- REVIEWS -->
+
+        <!-- REVIEWS: ONLY ONE SECTION -->
         <section class="page-section" id="reviews">
+
             <h2 class="section-heading">Reviews</h2>
+
             <div class="content-card">
                 <h3>Customer Reviews</h3>
-                <p>Customer ratings and feedback will appear here once the review system is connected.</p>
+
+                <p>
+                    Customer ratings and feedback will appear here
+                    once the review system is connected.
+                </p>
             </div>
+
         </section>
+
 
         <!-- SETTINGS -->
         <section class="page-section" id="settings">
+
             <h2 class="section-heading">Settings</h2>
+
             <div class="content-card">
                 <h3>Store Settings</h3>
-                <p>Manage your store availability and account preferences.</p>
-                <button class="green-button" id="settingsToggle">Change Store Status</button>
+
+                <p>
+                    Manage your store availability using the
+                    Online / Offline button.
+                </p>
+
+                <button type="button" class="green-button" id="settingsToggle">
+                    Change Store Status
+                </button>
             </div>
+
         </section>
+
 
         <!-- SELLER PROFILE -->
         <section class="page-section" id="profile">
+
             <h2 class="section-heading">Seller Profile</h2>
+
             <div class="content-card">
                 <div class="profile-avatar">👤</div>
+
                 <h3>Seller Account</h3>
-                <p>Manage your seller account and restaurant information here.</p>
-                <p class="profile-note">Profile details can be added when account registration is connected.</p>
+
+                <p>
+                    Manage your seller account and restaurant
+                    information here.
+                </p>
+
+                <p class="profile-note">
+                    Account details will be available when
+                    seller registration is connected.
+                </p>
             </div>
+
         </section>
 
     </main>
+
 </div>
 
+
+<!-- JAVASCRIPT -->
 <script>
-const navLinks = document.querySelectorAll(".nav-link[data-page]");
-const sections = document.querySelectorAll(".page-section");
-const pageTitle = document.getElementById("pageTitle");
+document.addEventListener("DOMContentLoaded", function () {
 
-function showPage(page) {
-    const target = document.getElementById(page);
-    if (!target) return;
+    const sections = document.querySelectorAll(".page-section");
+    const navLinks = document.querySelectorAll(".nav-link[data-page]");
+    const pageTitle = document.getElementById("pageTitle");
 
-    sections.forEach(section => section.classList.remove("active"));
-    target.classList.add("active");
+    // PAGE NAVIGATION
+    function showPage(page) {
 
-    navLinks.forEach(link => {
-        link.classList.toggle("active", link.dataset.page === page);
-    });
+        const target = document.getElementById(page);
 
-    pageTitle.textContent =
-        page === "profile" ? "Seller Profile" :
-        page.charAt(0).toUpperCase() + page.slice(1);
+        if (!target) return;
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
-}
+        sections.forEach(function (section) {
+            section.classList.remove("active");
+        });
 
-navLinks.forEach(link => {
-    link.addEventListener("click", event => {
-        event.preventDefault();
-        showPage(link.dataset.page);
-    });
-});
+        target.classList.add("active");
 
-document.querySelectorAll("[data-page]").forEach(button => {
-    if (button.tagName === "BUTTON") {
-        button.addEventListener("click", () => showPage(button.dataset.page));
+        navLinks.forEach(function (link) {
+            link.classList.toggle(
+                "active",
+                link.dataset.page === page
+            );
+        });
+
+        const titles = {
+            dashboard: "Dashboard",
+            orders: "Orders",
+            earnings: "Earnings",
+            reviews: "Reviews",
+            settings: "Settings",
+            profile: "Seller Profile"
+        };
+
+        pageTitle.textContent = titles[page] || "Dashboard";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+        if (page !== "dashboard") {
+            history.replaceState(null, "", "#" + page);
+        } else {
+            history.replaceState(null, "", location.pathname);
+        }
     }
-});
 
-document.getElementById("profileButton").addEventListener("click", () => {
-    showPage("profile");
-});
 
-/* Store status */
-let isOnline = localStorage.getItem("cravoraStoreStatus") !== "offline";
+    // SIDEBAR NAVIGATION
+    navLinks.forEach(function (link) {
 
-const toggleButton = document.getElementById("toggleStore");
-const statusText = document.getElementById("storeStatus");
-const statusDot = document.getElementById("statusDot");
+        link.addEventListener("click", function (event) {
 
-function updateStoreStatus() {
-    statusText.textContent = isOnline ? "Store Online" : "Store Offline";
-    statusDot.classList.toggle("offline", !isOnline);
-    toggleButton.textContent = isOnline ? "Go Offline" : "Go Online";
+            event.preventDefault();
 
-    localStorage.setItem(
-        "cravoraStoreStatus",
-        isOnline ? "online" : "offline"
-    );
-}
+            showPage(link.dataset.page);
 
-function toggleStoreStatus() {
-    isOnline = !isOnline;
+        });
+
+    });
+
+
+    // QUICK ACTION BUTTONS
+    document.querySelectorAll("button[data-page]").forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            showPage(button.dataset.page);
+
+        });
+
+    });
+
+
+    // SELLER PROFILE
+    document.getElementById("profileButton").addEventListener("click", function () {
+
+        showPage("profile");
+
+    });
+
+
+    // STORE STATUS
+    const toggleButton = document.getElementById("toggleStore");
+    const settingsToggle = document.getElementById("settingsToggle");
+    const statusText = document.getElementById("storeStatus");
+    const statusDot = document.getElementById("statusDot");
+
+    let isOnline = localStorage.getItem("cravoraStoreStatus") !== "offline";
+
+    function updateStoreStatus() {
+
+        statusText.textContent = isOnline ? "Store Online" : "Store Offline";
+
+        statusDot.classList.toggle("offline", !isOnline);
+
+        toggleButton.textContent = isOnline ? "Go Offline" : "Go Online";
+
+        localStorage.setItem(
+            "cravoraStoreStatus",
+            isOnline ? "online" : "offline"
+        );
+
+    }
+
+    function changeStoreStatus() {
+
+        isOnline = !isOnline;
+
+        updateStoreStatus();
+
+    }
+
+    toggleButton.addEventListener("click", changeStoreStatus);
+
+    settingsToggle.addEventListener("click", changeStoreStatus);
+
+
+    // OPEN SECTION FROM URL HASH
+    const initialPage = window.location.hash.replace("#", "");
+
+    if (initialPage && document.getElementById(initialPage)) {
+        showPage(initialPage);
+    }
+
     updateStoreStatus();
-}
 
-toggleButton.addEventListener("click", toggleStoreStatus);
-document.getElementById("settingsToggle").addEventListener("click", toggleStoreStatus);
-
-updateStoreStatus();
+});
 </script>
 
 </body>
