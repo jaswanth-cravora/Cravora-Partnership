@@ -16,92 +16,113 @@
     --text: #252525;
     --muted: #777777;
     --border: #E5EAE6;
-    --shadow: 0 4px 16px rgba(0,0,0,0.05);
+    --shadow: 0 4px 15px rgba(0,0,0,0.06);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
     background: var(--background);
     color: var(--text);
-    line-height: 1.6;
 }
 
-/* LAYOUT */
-
-.dashboard-layout {
+.dashboard {
     display: flex;
     min-height: 100vh;
-    width: 100%;
-}
-
-/* LOGO */
-
-.brand-logo {
-    font-size: 30px;
-    font-weight: 900;
-    letter-spacing: 1px;
-}
-
-.brand-green {
-    color: var(--green);
-}
-
-.brand-black {
-    color: var(--black);
 }
 
 /* SIDEBAR */
 
 .sidebar {
-    width: 250px;
-    flex: 0 0 250px;
-    height: 100vh;
-    min-height: 100vh;
+    width: 260px;
+    min-width: 260px;
     background: var(--black);
-    color: var(--white);
-    padding: 28px 18px;
-    position: sticky;
-    top: 0;
-    overflow-y: auto;
+    color: white;
+    padding: 22px 16px;
+    display: flex;
+    flex-direction: column;
 }
 
-.sidebar .brand-logo {
-    color: white;
+.brand-card {
+    width: 100%;
+    background: #FFFFFF;
+    padding: 20px 10px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.brand-logo {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.brand-green {
+    color: #16834A;
+}
+
+.brand-black {
+    color: #171717;
+}
+
+.brand-tagline {
+    font-size: 10px;
+    color: #555555;
+    margin-top: 6px;
+    letter-spacing: 0.4px;
 }
 
 .sidebar-subtitle {
-    color: #AAAAAA;
-    font-size: 12px;
-    margin: 8px 0 35px;
-    letter-spacing: 1.5px;
+    color: #A7A7A7;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 0 0 18px 10px;
 }
 
-.nav-links {
+.nav-menu {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 7px;
 }
 
-.nav-links a {
-    display: block;
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     padding: 13px 14px;
-    color: #DDDDDD;
+    color: #CFCFCF;
     text-decoration: none;
     border-radius: 8px;
     font-size: 14px;
-    transition: 0.2s ease;
+    transition: 0.2s;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-link:hover,
+.nav-link.active {
     background: var(--green);
     color: white;
+}
+
+.nav-icon {
+    font-size: 18px;
+    width: 22px;
+    text-align: center;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 18px 10px 5px;
+    color: #999999;
+    font-size: 12px;
 }
 
 /* MAIN CONTENT */
@@ -109,102 +130,75 @@ body {
 .main-content {
     flex: 1;
     min-width: 0;
-    padding: 35px;
+    padding: 28px;
 }
-
-/* HEADER */
 
 .topbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     margin-bottom: 28px;
 }
 
-.topbar h1 {
-    font-size: 28px;
-    color: var(--black);
-    margin-bottom: 7px;
+.page-title {
+    font-size: 25px;
+    font-weight: 750;
 }
 
-.topbar p {
-    color: var(--muted);
-    font-size: 14px;
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.seller-label {
-    background: var(--green-light);
-    color: var(--green-dark);
-    padding: 12px 17px;
+.profile {
+    background: white;
+    padding: 10px 15px;
     border-radius: 8px;
+    box-shadow: var(--shadow);
     font-size: 13px;
     font-weight: bold;
 }
 
-/* WELCOME */
-
-.welcome {
-    background: var(--green);
-    color: white;
-    padding: 30px;
-    border-radius: 14px;
-    margin-bottom: 24px;
-    box-shadow: var(--shadow);
-}
-
-.welcome h2 {
-    font-size: 25px;
-    color: white;
-    margin-bottom: 10px;
-}
-
-.welcome p {
-    color: #F0FFF4;
-    line-height: 1.6;
-}
-
-/* STATUS */
-
-.status-card {
+.status {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 15px;
-    padding: 23px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    margin-bottom: 24px;
-    box-shadow: var(--shadow);
-}
-
-.status-card h3 {
-    color: var(--black);
-}
-
-.status-card p {
-    color: var(--muted);
-    margin-top: 7px;
-}
-
-.status-btn {
-    background: #D94343;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 7px;
-    cursor: pointer;
+    gap: 8px;
+    font-size: 13px;
     font-weight: bold;
 }
 
-.status-btn:hover {
+.status-dot {
+    width: 9px;
+    height: 9px;
+    background: var(--green);
+    border-radius: 50%;
+}
+
+/* WELCOME BANNER */
+
+.welcome-banner {
+    background: var(--green);
+    color: white;
+    padding: 28px;
+    border-radius: 13px;
+    margin-bottom: 25px;
+}
+
+.welcome-banner h2 {
+    font-size: 23px;
+    margin-bottom: 9px;
+}
+
+.welcome-banner p {
+    font-size: 14px;
     opacity: 0.9;
 }
 
-/* STATISTICS */
+/* STAT CARDS */
 
-.stats {
+.stats-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 18px;
@@ -213,171 +207,169 @@ body {
 
 .stat-card {
     background: white;
-    padding: 23px;
-    border: 1px solid var(--border);
+    padding: 22px;
     border-radius: 12px;
     box-shadow: var(--shadow);
-    min-width: 0;
-    transition: 0.2s ease;
-}
-
-.stat-card:hover {
-    transform: translateY(-3px);
+    border: 1px solid var(--border);
 }
 
 .stat-card p {
     color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 15px;
+    font-size: 13px;
+    margin-bottom: 13px;
 }
 
 .stat-card h2 {
-    font-size: 27px;
-    color: var(--green);
-}
-
-/* SECTIONS */
-
-.section {
-    background: white;
-    padding: 25px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    margin-bottom: 24px;
-    box-shadow: var(--shadow);
-}
-
-.section h2 {
-    margin-bottom: 18px;
-    font-size: 21px;
+    font-size: 25px;
     color: var(--black);
 }
 
-.section p {
+.stat-icon {
+    font-size: 23px;
+    margin-bottom: 13px;
+}
+
+/* CONTENT CARDS */
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 20px;
+}
+
+.content-card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.content-card h3 {
+    font-size: 17px;
+    margin-bottom: 18px;
+}
+
+.empty-state {
+    padding: 30px 10px;
+    text-align: center;
     color: var(--muted);
-    line-height: 1.6;
-}
-
-.section a {
-    color: var(--green);
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.section a:hover {
-    color: var(--green-dark);
-}
-
-/* TABLE */
-
-.table-wrapper {
-    width: 100%;
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    min-width: 550px;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
     font-size: 14px;
 }
 
-th {
-    color: var(--black);
-    background: var(--green-light);
+.empty-icon {
+    font-size: 35px;
+    margin-bottom: 12px;
 }
 
-td {
-    color: var(--text);
+.quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.empty {
-    text-align: center;
-    color: var(--muted);
-    padding: 30px;
-}
-
-/* QUICK LINKS */
-
-.quick-links {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 15px;
-}
-
-.quick-links a {
-    text-align: center;
-    padding: 20px;
+.action-btn {
+    width: 100%;
+    padding: 13px;
     background: var(--green-light);
     color: var(--green-dark);
-    text-decoration: none;
-    border-radius: 9px;
+    border: 1px solid #D1E9D8;
+    border-radius: 8px;
+    font-size: 13px;
     font-weight: bold;
-    transition: 0.2s;
+    text-align: left;
+    cursor: pointer;
+    text-decoration: none;
 }
 
-.quick-links a:hover {
-    background: #D4EBDD;
+.action-btn:hover {
+    background: #D8EEDF;
 }
 
-/* FOOTER */
+/* PAGE SECTIONS */
 
-footer {
-    text-align: center;
-    padding: 22px;
+.page-section {
+    display: none;
+}
+
+.page-section.active {
+    display: block;
+}
+
+.section-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.info-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    margin-bottom: 18px;
+}
+
+.info-card p {
     color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.green-btn {
+    display: inline-block;
+    background: var(--green);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 7px;
+    margin-top: 15px;
+    cursor: pointer;
+    text-decoration: none;
     font-size: 13px;
 }
 
-/* TABLET */
+.green-btn:hover {
+    background: var(--green-dark);
+}
 
-@media (max-width: 1050px) {
-    .stats {
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+    .stats-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .main-content {
-        padding: 24px;
+    .content-grid {
+        grid-template-columns: 1fr;
     }
 }
 
-/* MOBILE */
-
 @media (max-width: 700px) {
-    .dashboard-layout {
-        display: block;
+    .dashboard {
+        flex-direction: column;
     }
 
     .sidebar {
         width: 100%;
-        height: auto;
-        min-height: auto;
-        position: relative;
-        padding: 20px;
+        min-width: 0;
+        padding: 16px;
     }
 
-    .sidebar-subtitle {
-        margin-bottom: 15px;
+    .brand-card {
+        max-width: 230px;
     }
 
-    .nav-links {
-        flex-direction: row;
-        flex-wrap: wrap;
+    .nav-menu {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .nav-links a {
-        padding: 10px;
-        font-size: 13px;
+    .sidebar-footer {
+        margin-top: 20px;
     }
 
     .main-content {
-        width: 100%;
         padding: 18px;
     }
 
@@ -386,18 +378,7 @@ footer {
         flex-direction: column;
     }
 
-    .status-card {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .quick-links {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 380px) {
-    .stats {
+    .stats-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -406,204 +387,257 @@ footer {
 
 <body>
 
-<div class="dashboard-layout">
+<div class="dashboard">
 
     <!-- SIDEBAR -->
-
     <aside class="sidebar">
 
-        <div class="brand-logo">
-            <span class="brand-green">CRAV</span><span>ORA</span>
+        <div class="brand-card">
+            <div class="brand-logo">
+                <span class="brand-green">CRAV</span><span class="brand-black">ORA</span>
+            </div>
+            <div class="brand-tagline">
+                Every Craving, Delivered
+            </div>
         </div>
 
         <div class="sidebar-subtitle">SELLER PANEL</div>
 
-        <nav class="nav-links">
-            <a href="index.html" class="active">Dashboard</a>
-            <a href="#orders">Orders</a>
-            <a href="menu.html">My Menu</a>
-            <a href="#earnings">Earnings</a>
-            <a href="#reviews">Reviews</a>
-            <a href="register.html">Restaurant Registration</a>
-            <a href="#settings">Settings</a>
+        <nav class="nav-menu">
+            <a href="#" class="nav-link active" data-page="dashboard">
+                <span class="nav-icon">▦</span> Dashboard
+            </a>
+
+            <a href="#" class="nav-link" data-page="orders">
+                <span class="nav-icon">🛍</span> Orders
+            </a>
+
+            <a href="menu.html" class="nav-link">
+                <span class="nav-icon">🍔</span> My Menu
+            </a>
+
+            <a href="#" class="nav-link" data-page="earnings">
+                <span class="nav-icon">₹</span> Earnings
+            </a>
+
+            <a href="#" class="nav-link" data-page="reviews">
+                <span class="nav-icon">⭐</span> Reviews
+            </a>
+
+            <a href="register.html" class="nav-link">
+                <span class="nav-icon">🏪</span> Restaurant Registration
+            </a>
+
+            <a href="#" class="nav-link" data-page="settings">
+                <span class="nav-icon">⚙</span> Settings
+            </a>
         </nav>
+
+        <div class="sidebar-footer">
+            CRAVORA Seller Platform<br>
+            Every Craving, Delivered
+        </div>
 
     </aside>
 
-    <!-- MAIN DASHBOARD -->
-
+    <!-- MAIN CONTENT -->
     <main class="main-content">
 
-        <header class="topbar">
-            <div>
-                <h1>Seller Dashboard</h1>
-                <p>Welcome to your Cravora restaurant panel!</p>
+        <div class="topbar">
+            <h1 class="page-title" id="pageTitle">Dashboard</h1>
+
+            <div class="topbar-right">
+                <div class="status">
+                    <span class="status-dot" id="statusDot"></span>
+                    <span id="storeStatus">Store Online</span>
+                </div>
+
+                <button class="green-btn" id="toggleStore" style="margin-top:0;">
+                    Go Offline
+                </button>
+
+                <div class="profile">👤 Seller</div>
+            </div>
+        </div>
+
+        <!-- DASHBOARD PAGE -->
+        <section class="page-section active" id="dashboard">
+
+            <div class="welcome-banner">
+                <h2>Welcome to CRAVORA Seller Panel!</h2>
+                <p>Manage your restaurant, orders and business from one place.</p>
             </div>
 
-            <div class="seller-label">CRAVORA SELLER</div>
-        </header>
+            <div class="stats-grid">
 
-        <section class="welcome">
-            <h2>Welcome to CRAVORA!</h2>
-            <p>Manage your restaurant, menu and customer orders from one place.</p>
-        </section>
+                <div class="stat-card">
+                    <div class="stat-icon">🛍</div>
+                    <p>Total Orders</p>
+                    <h2>0</h2>
+                </div>
 
-        <!-- RESTAURANT STATUS -->
+                <div class="stat-card">
+                    <div class="stat-icon">₹</div>
+                    <p>Total Earnings</p>
+                    <h2>₹0</h2>
+                </div>
 
-        <section class="status-card">
-            <div>
-                <h3>Restaurant Status</h3>
-                <p id="statusText">Your restaurant is currently offline.</p>
+                <div class="stat-card">
+                    <div class="stat-icon">🍔</div>
+                    <p>Menu Items</p>
+                    <h2>0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <p>Customer Rating</p>
+                    <h2>--</h2>
+                </div>
+
             </div>
 
-            <button class="status-btn" id="statusButton" type="button">
-                Store Offline
-            </button>
-        </section>
+            <div class="content-grid">
 
-        <!-- STATISTICS -->
+                <div class="content-card">
+                    <h3>Recent Orders</h3>
+                    <div class="empty-state">
+                        <div class="empty-icon">🛍</div>
+                        No orders yet.<br>
+                        New customer orders will appear here.
+                    </div>
+                </div>
 
-        <section class="stats">
+                <div class="content-card">
+                    <h3>Quick Actions</h3>
 
-            <div class="stat-card">
-                <p>New Orders</p>
-                <h2 id="newOrders">0</h2>
-            </div>
+                    <div class="quick-actions">
+                        <a href="menu.html" class="action-btn">＋ Manage Menu</a>
+                        <a href="register.html" class="action-btn">＋ Register Restaurant</a>
+                        <a href="#" class="action-btn" data-page="orders">View Orders →</a>
+                        <a href="#" class="action-btn" data-page="settings">Store Settings →</a>
+                    </div>
+                </div>
 
-            <div class="stat-card">
-                <p>Preparing</p>
-                <h2 id="preparingOrders">0</h2>
-            </div>
-
-            <div class="stat-card">
-                <p>Ready for Pickup</p>
-                <h2 id="readyOrders">0</h2>
-            </div>
-
-            <div class="stat-card">
-                <p>Today's Sales</p>
-                <h2 id="todaySales">₹0</h2>
-            </div>
-
-        </section>
-
-        <!-- ORDERS -->
-
-        <section class="section" id="orders">
-
-            <h2>Recent Orders</h2>
-
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Order ID</th>
-                            <th>Customer</th>
-                            <th>Food Item</th>
-                            <th>Amount</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td colspan="5" class="empty">
-                                No orders yet. Your orders will appear here.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-        </section>
-
-        <!-- MENU -->
-
-        <section class="section" id="menu">
-            <h2>My Menu</h2>
-            <p>Manage your restaurant food items and prices.</p>
-            <br>
-            <a href="menu.html">Open Menu Management →</a>
-        </section>
-
-        <!-- EARNINGS -->
-
-        <section class="section" id="earnings">
-            <h2>Earnings Overview</h2>
-            <p>Your earnings information will appear here.</p>
-        </section>
-
-        <!-- REVIEWS -->
-
-        <section class="section" id="reviews">
-            <h2>Customer Reviews</h2>
-            <p>Customer feedback will appear here.</p>
-        </section>
-
-        <!-- SETTINGS -->
-
-        <section class="section" id="settings">
-            <h2>Settings</h2>
-            <p>Manage your seller account settings here.</p>
-        </section>
-
-        <!-- QUICK ACCESS -->
-
-        <section class="section">
-            <h2>Quick Access</h2>
-
-            <div class="quick-links">
-                <a href="menu.html">Manage Menu</a>
-                <a href="register.html">Register Restaurant</a>
-                <a href="#orders">View Orders</a>
             </div>
         </section>
 
-        <footer>
-            © 2026 CRAVORA | Every Craving, Delivered.
-        </footer>
+        <!-- ORDERS PAGE -->
+        <section class="page-section" id="orders">
+            <h2 class="section-heading">Orders</h2>
+            <div class="info-card">
+                <h3>Manage Your Orders</h3>
+                <p>Your incoming and completed orders will appear here once the ordering system is connected.</p>
+            </div>
+        </section>
+
+        <!-- EARNINGS PAGE -->
+        <section class="page-section" id="earnings">
+            <h2 class="section-heading">Earnings</h2>
+            <div class="info-card">
+                <h3>Your Earnings Overview</h3>
+                <p>Your sales and payment information will appear here when payment processing is connected.</p>
+            </div>
+        </section>
+
+        <!-- REVIEWS PAGE -->
+        <section class="page-section" id="reviews">
+            <h2 class="section-heading">Customer Reviews</h2>
+            <div class="info-card">
+                <h3>Customer Feedback</h3>
+                <p>Customer ratings and reviews will appear here when the review system is connected.</p>
+            </div>
+        </section>
+
+        <!-- SETTINGS PAGE -->
+        <section class="page-section" id="settings">
+            <h2 class="section-heading">Settings</h2>
+
+            <div class="info-card">
+                <h3>Store Settings</h3>
+                <p>Manage your store availability using the Online / Offline button at the top of this page.</p>
+                <button class="green-btn" id="settingsToggle">Change Store Status</button>
+            </div>
+
+            <div class="info-card">
+                <h3>Account Information</h3>
+                <p>Seller account settings and restaurant details can be added here.</p>
+            </div>
+        </section>
 
     </main>
-
 </div>
 
 <script>
-const statusButton = document.getElementById("statusButton");
-const statusText = document.getElementById("statusText");
+/* PAGE NAVIGATION */
 
-let isOnline = false;
+const navLinks = document.querySelectorAll("[data-page]");
+const sections = document.querySelectorAll(".page-section");
+const pageTitle = document.getElementById("pageTitle");
 
-try {
-    isOnline = localStorage.getItem("cravoraStoreOnline") === "true";
-} catch (error) {
-    console.warn("Local storage unavailable.");
-}
+function showPage(page) {
+    sections.forEach(section => {
+        section.classList.remove("active");
+    });
 
-function updateStatus() {
-    statusButton.textContent = isOnline ? "Store Online" : "Store Offline";
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+    });
 
-    statusButton.style.background = isOnline
-        ? "#16834A"
-        : "#D94343";
+    const selectedPage = document.getElementById(page);
 
-    statusText.textContent = isOnline
-        ? "Your restaurant is currently online."
-        : "Your restaurant is currently offline.";
-}
+    if (selectedPage) {
+        selectedPage.classList.add("active");
+        pageTitle.textContent =
+            page.charAt(0).toUpperCase() + page.slice(1);
 
-statusButton.addEventListener("click", () => {
-    isOnline = !isOnline;
-
-    try {
-        localStorage.setItem("cravoraStoreOnline", String(isOnline));
-    } catch (error) {
-        console.warn("Could not save status.");
+        document.querySelectorAll('[data-page="' + page + '"]').forEach(link => {
+            link.classList.add("active");
+        });
     }
+}
 
-    updateStatus();
+navLinks.forEach(link => {
+    link.addEventListener("click", function(event) {
+        event.preventDefault();
+        showPage(this.dataset.page);
+    });
 });
 
-updateStatus();
+/* STORE ONLINE / OFFLINE STATUS */
+
+const toggleButton = document.getElementById("toggleStore");
+const settingsToggle = document.getElementById("settingsToggle");
+const storeStatus = document.getElementById("storeStatus");
+const statusDot = document.getElementById("statusDot");
+
+let isOnline = localStorage.getItem("cravoraStoreStatus") !== "offline";
+
+function updateStoreStatus() {
+    if (isOnline) {
+        storeStatus.textContent = "Store Online";
+        statusDot.style.background = "#16834A";
+        toggleButton.textContent = "Go Offline";
+    } else {
+        storeStatus.textContent = "Store Offline";
+        statusDot.style.background = "#E04444";
+        toggleButton.textContent = "Go Online";
+    }
+
+    localStorage.setItem(
+        "cravoraStoreStatus",
+        isOnline ? "online" : "offline"
+    );
+}
+
+function toggleStoreStatus() {
+    isOnline = !isOnline;
+    updateStoreStatus();
+}
+
+toggleButton.addEventListener("click", toggleStoreStatus);
+settingsToggle.addEventListener("click", toggleStoreStatus);
+
+updateStoreStatus();
 </script>
 
 </body>
