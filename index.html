@@ -1,166 +1,431 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRAVORA | Seller Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRAVORA | Seller Dashboard</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f6fa;
+    color: #222;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #191919;
+    color: white;
+    padding: 28px 18px;
+}
+
+.logo {
+    color: #ff6b35;
+    font-size: 29px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.sidebar p {
+    color: #aaa;
+    font-size: 12px;
+    margin-bottom: 35px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 14px;
+    color: #ddd;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: #ff6b35;
+    color: white;
+}
+
+.main {
+    margin-left: 250px;
+    padding: 35px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.topbar h1 {
+    font-size: 28px;
+}
+
+.topbar span {
+    color: #777;
+    font-size: 14px;
+}
+
+.welcome {
+    background: linear-gradient(120deg, #ff6b35, #ff914d);
+    padding: 28px;
+    color: white;
+    border-radius: 14px;
+    margin-bottom: 25px;
+}
+
+.welcome h2 {
+    margin-bottom: 8px;
+}
+
+.status-card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+}
+
+.status-card p {
+    color: #777;
+    margin-top: 6px;
+}
+
+.status-btn {
+    border: none;
+    background: #e74c3c;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    padding: 23px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+}
+
+.stat-card p {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.stat-card h2 {
+    font-size: 27px;
+}
+
+.section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+}
+
+.section h2 {
+    margin-bottom: 20px;
+}
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+th {
+    color: #777;
+    background: #fafafa;
+}
+
+.empty {
+    text-align: center;
+    color: #888;
+    padding: 35px;
+}
+
+.quick-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.quick-links a {
+    padding: 20px;
+    background: #fff4ef;
+    color: #e95725;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.quick-links a:hover {
+    background: #ffe4d8;
+}
+
+.footer {
+    text-align: center;
+    color: #888;
+    padding: 20px;
+}
+
+@media(max-width: 1000px) {
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 700px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .sidebar p {
+        margin-bottom: 15px;
+    }
+
+    .sidebar a {
+        display: inline-block;
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .main {
+        margin-left: 0;
+        padding: 18px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .quick-links {
+        grid-template-columns: 1fr;
+    }
+
+    .status-card {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media(max-width: 380px) {
+    .stats {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <aside class="sidebar">
-        <div class="brand">
-            <h1>CRAVORA</h1>
-            <p>SELLER PANEL</p>
+<aside class="sidebar">
+    <div class="logo">CRAVORA</div>
+    <p>SELLER PANEL</p>
+
+    <a href="index.html" class="active">Dashboard</a>
+    <a href="#orders">Orders</a>
+    <a href="menu.html">My Menu</a>
+    <a href="#earnings">Earnings</a>
+    <a href="#reviews">Reviews</a>
+    <a href="register.html">Restaurant Registration</a>
+    <a href="#settings">Settings</a>
+</aside>
+
+<main class="main">
+
+    <div class="topbar">
+        <div>
+            <h1>Seller Dashboard</h1>
+            <span>Welcome back to your Cravora restaurant panel!</span>
+        </div>
+        <strong>CRAVORA SELLER</strong>
+    </div>
+
+    <section class="welcome">
+        <h2>Welcome to CRAVORA!</h2>
+        <p>Manage your restaurant, food menu and orders from one place.</p>
+    </section>
+
+    <section class="status-card">
+        <div>
+            <h3>Restaurant Status</h3>
+            <p id="statusText">Your restaurant is currently offline.</p>
+        </div>
+        <button class="status-btn" id="statusButton" type="button">
+            Store Offline
+        </button>
+    </section>
+
+    <section class="stats">
+        <div class="stat-card">
+            <p>New Orders</p>
+            <h2 id="newOrders">0</h2>
         </div>
 
-        <nav>
-            <a href="index.html" class="active">▦ Dashboard</a>
-            <a href="#orders">▤ Orders</a>
-            <a href="menu.html">🍔 My Menu</a>
-            <a href="#earnings">₹ Earnings</a>
-            <a href="#reviews">★ Reviews</a>
-            <a href="register.html">＋ Restaurant Registration</a>
-            <a href="#settings">⚙ Settings</a>
-        </nav>
-
-        <div class="sidebar-footer">
-            CRAVORA SELLER<br>
-            <span>Every Craving, Delivered.</span>
+        <div class="stat-card">
+            <p>Preparing</p>
+            <h2 id="preparingOrders">0</h2>
         </div>
-    </aside>
 
-    <main class="main-content">
+        <div class="stat-card">
+            <p>Ready for Pickup</p>
+            <h2 id="readyOrders">0</h2>
+        </div>
 
-        <header class="topbar">
-            <div>
-                <p class="eyebrow">RESTAURANT MANAGEMENT</p>
-                <h2>Seller Dashboard</h2>
-                <p class="muted">Welcome back! Manage your restaurant here.</p>
-            </div>
-            <div class="profile">
-                <div class="avatar">S</div>
-                <div>
-                    <strong>Seller Account</strong>
-                    <p>Restaurant Partner</p>
-                </div>
-            </div>
-        </header>
+        <div class="stat-card">
+            <p>Today's Sales</p>
+            <h2 id="todaySales">₹0</h2>
+        </div>
+    </section>
 
-        <section class="store-status">
-            <div>
-                <h3>Restaurant Availability</h3>
-                <p id="storeMessage">Your restaurant is currently offline.</p>
-            </div>
-            <button id="storeStatus" class="offline">Store Offline</button>
-        </section>
+    <section class="section" id="orders">
+        <h2>Recent Orders</h2>
 
-        <section class="stats-container">
-            <div class="stat-card">
-                <div class="stat-top">
-                    <span>New Orders</span><span>📥</span>
-                </div>
-                <h2 id="newOrders">0</h2>
-                <p>Orders waiting for action</p>
-            </div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Food Item</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
 
-            <div class="stat-card">
-                <div class="stat-top">
-                    <span>Preparing</span><span>👨‍🍳</span>
-                </div>
-                <h2 id="preparingOrders">0</h2>
-                <p>Currently being prepared</p>
-            </div>
+                <tbody>
+                    <tr>
+                        <td colspan="5" class="empty">
+                            No orders yet. Your orders will appear here.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
-            <div class="stat-card">
-                <div class="stat-top">
-                    <span>Ready for Pickup</span><span>📦</span>
-                </div>
-                <h2 id="readyOrders">0</h2>
-                <p>Waiting for delivery partner</p>
-            </div>
+    <section class="section" id="menu">
+        <h2>My Menu</h2>
+        <p>Manage your restaurant food items and prices.</p>
+        <br>
+        <a href="menu.html" class="quick-link">Open Menu Management →</a>
+    </section>
 
-            <div class="stat-card">
-                <div class="stat-top">
-                    <span>Today's Sales</span><span>💰</span>
-                </div>
-                <h2 id="todaySales">₹0</h2>
-                <p>Completed demo orders</p>
-            </div>
-        </section>
+    <section class="section" id="earnings">
+        <h2>Earnings Overview</h2>
+        <p>Your earnings information will appear here.</p>
+    </section>
 
-        <section class="orders-section" id="orders">
-            <div class="section-heading">
-                <div>
-                    <h2>Order Management</h2>
-                    <p>Review and update incoming orders.</p>
-                </div>
-                <select id="orderFilter">
-                    <option value="All">All Orders</option>
-                    <option value="New">New</option>
-                    <option value="Preparing">Preparing</option>
-                    <option value="Ready">Ready</option>
-                    <option value="Completed">Completed</option>
-                    <option value="Rejected">Rejected</option>
-                </select>
-            </div>
+    <section class="section" id="reviews">
+        <h2>Customer Reviews</h2>
+        <p>Customer feedback will appear here.</p>
+    </section>
 
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Order ID</th>
-                            <th>Customer</th>
-                            <th>Food Item</th>
-                            <th>Amount</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="orderTableBody"></tbody>
-                </table>
-            </div>
-            <p class="demo-note">Demo orders are for testing only. No real customer orders are connected yet.</p>
-        </section>
+    <section class="section" id="settings">
+        <h2>Seller Settings</h2>
+        <p>Manage your seller account settings here.</p>
+    </section>
 
-        <section class="stats-container quick-access">
-            <div class="stat-card">
-                <h3>🍔 Food Menu</h3>
-                <p>Manage food items, availability and prices.</p>
-                <a href="menu.html">Manage Menu →</a>
-            </div>
+    <section class="section">
+        <h2>Quick Access</h2>
 
-            <div class="stat-card">
-                <h3>🏪 Restaurant Profile</h3>
-                <p>Manage your restaurant registration details.</p>
-                <a href="register.html">Restaurant Registration →</a>
-            </div>
-        </section>
+        <div class="quick-links">
+            <a href="menu.html">Manage Menu</a>
+            <a href="register.html">Register Restaurant</a>
+            <a href="#orders">View Orders</a>
+        </div>
+    </section>
 
-        <section class="orders-section" id="earnings">
-            <h2>Earnings Overview</h2>
-            <p>Your completed demo order sales:</p>
-            <h2 class="earnings-value" id="earningsTotal">₹0</h2>
-            <p class="muted">This is sample browser data, not actual payouts.</p>
-        </section>
+    <div class="footer">
+        © 2026 CRAVORA | Every Craving, Delivered.
+    </div>
 
-        <section class="orders-section" id="reviews">
-            <h2>Customer Reviews</h2>
-            <p>Customer feedback will appear here once a review system is connected.</p>
-        </section>
+</main>
 
-        <section class="orders-section" id="settings">
-            <h2>Settings</h2>
-            <p>Seller account settings and restaurant preferences.</p>
-        </section>
+<script>
+const statusButton = document.getElementById("statusButton");
+const statusText = document.getElementById("statusText");
 
-        <footer>
-            <p>© 2026 CRAVORA. Every Craving, Delivered.</p>
-            <p>Seller Dashboard | Part 2</p>
-        </footer>
+let isOnline = false;
 
-    </main>
+try {
+    isOnline = localStorage.getItem("cravoraStoreOnline") === "true";
+} catch (error) {
+    isOnline = false;
+}
 
-    <script src="script.js"></script>
+function updateStoreStatus() {
+    statusButton.textContent = isOnline ? "Store Online" : "Store Offline";
+    statusButton.style.background = isOnline ? "#27ae60" : "#e74c3c";
+
+    statusText.textContent = isOnline
+        ? "Your restaurant is currently online."
+        : "Your restaurant is currently offline.";
+}
+
+statusButton.addEventListener("click", function() {
+    isOnline = !isOnline;
+
+    try {
+        localStorage.setItem("cravoraStoreOnline", String(isOnline));
+    } catch (error) {
+        console.warn("Could not save store status.");
+    }
+
+    updateStoreStatus();
+});
+
+updateStoreStatus();
+</script>
+
 </body>
 </html>
