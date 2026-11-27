@@ -1,15 +1,14 @@
 :root {
-    --green: #16834A;
-    --green-dark: #10663A;
-    --green-light: #E8F5EC;
+    --green: #087F5B;
+    --green-dark: #056347;
+    --green-light: #DDF5E5;
     --black: #171717;
     --white: #FFFFFF;
-    --background: #F7F9F7;
+    --background: #F7FAF7;
     --text: #252525;
     --muted: #777777;
-    --border: #E5EAE6;
+    --border: #E2EAE3;
 }
-
 * {
     margin: 0;
     padding: 0;
