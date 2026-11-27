@@ -5,74 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cravora | Leadership</title>
     <link rel="stylesheet" href="./style.css">
+
     <style>
-        .leadership-grid {
+        .leadership-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
-            margin-top: 30px;
+            margin-top: 35px;
         }
 
         .leader-card {
-            background: white;
-            padding: 35px 20px;
+            background: #fff;
             border-radius: 14px;
+            padding: 40px 20px;
             text-align: center;
             border-top: 5px solid #087F5B;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
         }
 
         .leader-role {
             color: #087F5B;
+            font-size: 14px;
             font-weight: bold;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
 
         .leader-name {
             color: #171717;
             font-size: 22px;
+            margin-top: 15px;
+        }
+
+        .leadership-intro {
+            color: #777;
+            margin-top: 10px;
         }
     </style>
 </head>
+
 <body>
 
-<aside class="sidebar">
-    <div class="brand">
-        <h1><span style="color:#087F5B">CRAV</span><span style="color:#171717">ORA</span></h1>
-        <p>Every Craving, Delivered</p>
-    </div>
-
-    <nav>
-        <a href="./index.html">Dashboard</a>
-        <a href="./index.html#orders">Orders</a>
-        <a href="./menu.html">My Menu</a>
-        <a href="./index.html#earnings">Earnings</a>
-        <a href="./index.html#reviews">Reviews</a>
-        <a href="./register.html">Restaurant Registration</a>
-        <a href="./accounts.html">Accounts</a>
-        <a href="./index.html#settings">Settings</a>
-        <a href="./leadership.html">Leadership</a>
-    </nav>
-</aside>
-
-<main class="main-content">
-    <header>
-        <h2>Leadership</h2>
-        <p>The leadership team behind Cravora.</p>
-    </header>
-
-    <section class="leadership-grid">
-        <div class="leader-card">
-            <p class="leader-role">FOUNDER</p>
-            <h2 class="leader-name">T. JASWANTH REDDY</h2>
+    <aside class="sidebar">
+        <div class="brand">
+            <h1>
+                <span style="color:#087F5B">CRAV</span><span style="color:#171717">ORA</span>
+            </h1>
+            <p>Every Craving, Delivered</p>
         </div>
 
-        <div class="leader-card">
-            <p class="leader-role">CO-FOUNDER</p>
-            <h2 class="leader-name">G. DHANUSH</h2>
-        </div>
-    </section>
-</main>
+        <nav>
+            <a href="./leadership.html">Leadership</a>
+            <a href="./index.html">Dashboard</a>
+            <a href="./index.html#orders">Orders</a>
+            <a href="./menu.html">My Menu</a>
+            <a href="./index.html#earnings">Earnings</a>
+            <a href="./index.html#reviews">Reviews</a>
+            <a href="./register.html">Restaurant Registration</a>
+            <a href="./index.html#settings">Settings</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+
+        <header>
+            <h2>Cravora Leadership</h2>
+            <p class="leadership-intro">
+                Meet the people behind Cravora.
+            </p>
+        </header>
+
+        <section class="leadership-container">
+
+            <div class="leader-card">
+                <p class="leader-role">FOUNDER</p>
+                <h2 class="leader-name">T. JASWANTH REDDY</h2>
+            </div>
+
+            <div class="leader-card">
+                <p class="leader-role">CO-FOUNDER</p>
+                <h2 class="leader-name">G. DHANUSH</h2>
+            </div>
+
+        </section>
+
+    </main>
 
 </body>
 </html>
