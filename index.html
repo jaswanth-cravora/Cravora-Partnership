@@ -7,16 +7,16 @@
 
 <style>
 :root {
-    --green: #16834a;
-    --dark-green: #075c35;
-    --deep-green: #06452a;
-    --light-green: #e6f5eb;
-    --background: #f3faf5;
-    --white: #ffffff;
-    --text: #183b29;
-    --muted: #718579;
-    --border: #dcebe0;
-    --shadow: 0 4px 16px rgba(7, 92, 53, 0.07);
+    --green: #16834A;
+    --green-dark: #10663A;
+    --green-light: #E8F5EC;
+    --black: #171717;
+    --white: #FFFFFF;
+    --background: #F7F9F7;
+    --text: #252525;
+    --muted: #777777;
+    --border: #E5EAE6;
+    --shadow: 0 4px 16px rgba(0,0,0,0.05);
 }
 
 * {
@@ -32,10 +32,28 @@ body {
     line-height: 1.6;
 }
 
+/* LAYOUT */
+
 .dashboard-layout {
     display: flex;
     min-height: 100vh;
     width: 100%;
+}
+
+/* LOGO */
+
+.brand-logo {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.brand-green {
+    color: var(--green);
+}
+
+.brand-black {
+    color: var(--black);
 }
 
 /* SIDEBAR */
@@ -43,28 +61,25 @@ body {
 .sidebar {
     width: 250px;
     flex: 0 0 250px;
+    height: 100vh;
     min-height: 100vh;
-    background: var(--dark-green);
-    color: white;
+    background: var(--black);
+    color: var(--white);
     padding: 28px 18px;
     position: sticky;
     top: 0;
-    height: 100vh;
     overflow-y: auto;
 }
 
-.logo {
-    font-size: 30px;
-    font-weight: 800;
+.sidebar .brand-logo {
     color: white;
-    letter-spacing: 2px;
 }
 
 .sidebar-subtitle {
-    color: #b8ddc5;
+    color: #AAAAAA;
     font-size: 12px;
     margin: 8px 0 35px;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
 }
 
 .nav-links {
@@ -75,12 +90,12 @@ body {
 
 .nav-links a {
     display: block;
-    padding: 14px;
-    color: #e1f3e7;
+    padding: 13px 14px;
+    color: #DDDDDD;
     text-decoration: none;
     border-radius: 8px;
     font-size: 14px;
-    transition: 0.2s;
+    transition: 0.2s ease;
 }
 
 .nav-links a:hover,
@@ -109,8 +124,8 @@ body {
 
 .topbar h1 {
     font-size: 28px;
+    color: var(--black);
     margin-bottom: 7px;
-    color: var(--deep-green);
 }
 
 .topbar p {
@@ -119,8 +134,8 @@ body {
 }
 
 .seller-label {
-    background: var(--light-green);
-    color: var(--dark-green);
+    background: var(--green-light);
+    color: var(--green-dark);
     padding: 12px 17px;
     border-radius: 8px;
     font-size: 13px;
@@ -130,7 +145,7 @@ body {
 /* WELCOME */
 
 .welcome {
-    background: linear-gradient(120deg, #075c35, #22a05b);
+    background: var(--green);
     color: white;
     padding: 30px;
     border-radius: 14px;
@@ -140,12 +155,12 @@ body {
 
 .welcome h2 {
     font-size: 25px;
-    margin-bottom: 10px;
     color: white;
+    margin-bottom: 10px;
 }
 
 .welcome p {
-    color: #e5f7eb;
+    color: #F0FFF4;
     line-height: 1.6;
 }
 
@@ -165,7 +180,7 @@ body {
 }
 
 .status-card h3 {
-    color: var(--dark-green);
+    color: var(--black);
 }
 
 .status-card p {
@@ -174,7 +189,7 @@ body {
 }
 
 .status-btn {
-    background: #dc4545;
+    background: #D94343;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -203,7 +218,7 @@ body {
     border-radius: 12px;
     box-shadow: var(--shadow);
     min-width: 0;
-    transition: transform 0.2s;
+    transition: 0.2s ease;
 }
 
 .stat-card:hover {
@@ -235,7 +250,7 @@ body {
 .section h2 {
     margin-bottom: 18px;
     font-size: 21px;
-    color: var(--dark-green);
+    color: var(--black);
 }
 
 .section p {
@@ -250,10 +265,10 @@ body {
 }
 
 .section a:hover {
-    color: var(--dark-green);
+    color: var(--green-dark);
 }
 
-/* ORDERS TABLE */
+/* TABLE */
 
 .table-wrapper {
     width: 100%;
@@ -274,8 +289,8 @@ th, td {
 }
 
 th {
-    color: var(--dark-green);
-    background: var(--light-green);
+    color: var(--black);
+    background: var(--green-light);
 }
 
 td {
@@ -299,8 +314,8 @@ td {
 .quick-links a {
     text-align: center;
     padding: 20px;
-    background: var(--light-green);
-    color: var(--dark-green);
+    background: var(--green-light);
+    color: var(--green-dark);
     text-decoration: none;
     border-radius: 9px;
     font-weight: bold;
@@ -308,7 +323,7 @@ td {
 }
 
 .quick-links a:hover {
-    background: #cdebd6;
+    background: #D4EBDD;
 }
 
 /* FOOTER */
@@ -393,8 +408,14 @@ footer {
 
 <div class="dashboard-layout">
 
+    <!-- SIDEBAR -->
+
     <aside class="sidebar">
-        <div class="logo">CRAVORA</div>
+
+        <div class="brand-logo">
+            <span class="brand-green">CRAV</span><span>ORA</span>
+        </div>
+
         <div class="sidebar-subtitle">SELLER PANEL</div>
 
         <nav class="nav-links">
@@ -406,7 +427,10 @@ footer {
             <a href="register.html">Restaurant Registration</a>
             <a href="#settings">Settings</a>
         </nav>
+
     </aside>
+
+    <!-- MAIN DASHBOARD -->
 
     <main class="main-content">
 
@@ -415,6 +439,7 @@ footer {
                 <h1>Seller Dashboard</h1>
                 <p>Welcome to your Cravora restaurant panel!</p>
             </div>
+
             <div class="seller-label">CRAVORA SELLER</div>
         </header>
 
@@ -423,17 +448,23 @@ footer {
             <p>Manage your restaurant, menu and customer orders from one place.</p>
         </section>
 
+        <!-- RESTAURANT STATUS -->
+
         <section class="status-card">
             <div>
                 <h3>Restaurant Status</h3>
                 <p id="statusText">Your restaurant is currently offline.</p>
             </div>
+
             <button class="status-btn" id="statusButton" type="button">
                 Store Offline
             </button>
         </section>
 
+        <!-- STATISTICS -->
+
         <section class="stats">
+
             <div class="stat-card">
                 <p>New Orders</p>
                 <h2 id="newOrders">0</h2>
@@ -453,9 +484,13 @@ footer {
                 <p>Today's Sales</p>
                 <h2 id="todaySales">₹0</h2>
             </div>
+
         </section>
 
+        <!-- ORDERS -->
+
         <section class="section" id="orders">
+
             <h2>Recent Orders</h2>
 
             <div class="table-wrapper">
@@ -479,7 +514,10 @@ footer {
                     </tbody>
                 </table>
             </div>
+
         </section>
+
+        <!-- MENU -->
 
         <section class="section" id="menu">
             <h2>My Menu</h2>
@@ -488,20 +526,28 @@ footer {
             <a href="menu.html">Open Menu Management →</a>
         </section>
 
+        <!-- EARNINGS -->
+
         <section class="section" id="earnings">
             <h2>Earnings Overview</h2>
             <p>Your earnings information will appear here.</p>
         </section>
+
+        <!-- REVIEWS -->
 
         <section class="section" id="reviews">
             <h2>Customer Reviews</h2>
             <p>Customer feedback will appear here.</p>
         </section>
 
+        <!-- SETTINGS -->
+
         <section class="section" id="settings">
             <h2>Settings</h2>
             <p>Manage your seller account settings here.</p>
         </section>
+
+        <!-- QUICK ACCESS -->
 
         <section class="section">
             <h2>Quick Access</h2>
@@ -518,6 +564,7 @@ footer {
         </footer>
 
     </main>
+
 </div>
 
 <script>
@@ -534,7 +581,10 @@ try {
 
 function updateStatus() {
     statusButton.textContent = isOnline ? "Store Online" : "Store Offline";
-    statusButton.style.background = isOnline ? "#16834a" : "#dc4545";
+
+    statusButton.style.background = isOnline
+        ? "#16834A"
+        : "#D94343";
 
     statusText.textContent = isOnline
         ? "Your restaurant is currently online."
